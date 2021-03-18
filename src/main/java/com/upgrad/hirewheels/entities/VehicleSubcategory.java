@@ -1,6 +1,5 @@
-package com.upgrad.hirewheels.Entity;
+package com.upgrad.hirewheels.entities;
 import javax.persistence.*;
-import java.util.Optional;
 import java.util.Set;
 
 @Entity

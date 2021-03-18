@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping(value="/hirewheels/v1")
 public class AdminController {
@@ -37,7 +35,6 @@ public class AdminController {
 
     private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
-    @PostMapping(value="/vehicles",consumes= MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity newVehicle(@RequestBody VehicleDto vehicleDto,@RequestHeader(value = "ACCESS-TOKEN") String token) throws APIException, UserDetailsNotFoundException {
         if(token == null)
             throw new APIException("Please add proper authentication");

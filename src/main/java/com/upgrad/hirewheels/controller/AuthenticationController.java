@@ -40,7 +40,6 @@ public class AuthenticationController {
     @Autowired
     ModelMapper modelMapper;
 
-    @PostMapping(value = "/signup",consumes= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity signUp(@RequestBody SignUpDto userDto) throws APIException, UserAlreadyExitsException, UserDetailsNotFoundException {
          userValidator.validateUser(userDto);
          if(userService.getUserByEmailId(userDto.getEmailId())!=null ||
@@ -55,7 +54,6 @@ public class AuthenticationController {
          return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
 
-    @PostMapping(value = "/login")
     public ResponseEntity login(@RequestBody UserLoginDto loginDTO)
             throws APIException, UserAlreadyExitsException {
 

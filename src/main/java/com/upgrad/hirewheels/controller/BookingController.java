@@ -36,7 +36,6 @@ public class BookingController {
     @Autowired
     BookingEntityToDtoConvertor eToDConvertor;
 
-    @PostMapping(value="/bookings",consumes= MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addBooking(@RequestBody BookingDto bookingDto) throws Exception {
         if((userService.getUserDetails(bookingDto.getUser())).getWalletMoney()<bookingDto.getAmount())
             throw new APIException("Insufficient balance. Please check with Admin");
